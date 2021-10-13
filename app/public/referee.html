@@ -63,7 +63,32 @@
                 </li>
               </ul>
             </div>
-          </nav>
+        </nav>
+
+        <!-- Table of Referees -->
+        <div id="RefereeApp" class="row">
+        <h1 id="RefereeTable">List of Referees</h1>  
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Referee Name</th>
+                    <th>Age</th>
+                    <th>Grade</th>
+                    <th>Skill</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="referee in referees">
+                    <td>{{ referees.id }}</td>
+                    <td>{{ referees.lastName }}, {{ referees.firstName}}</td>
+                    <td>{{ referees.age }}</td>
+                    <td>{{ referees.grade }}</td>
+                    <td>{{ referees.skill }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     
 
     </div>
