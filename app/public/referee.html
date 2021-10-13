@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!--jQuery CDN-->
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    
+    <!--Compiled and minified JavaScript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Link to Internal CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Fonts Style Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+        
+    <title>Indiana Soccer Referee Association</title>
+</head>
+<body>
+
+    <!------------------------------------------------------------------------------------------------------------------>
+    <div class="container">
+        
+        <!-- Header/LOGO -->
+        <header class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 id="logo">INDIANA SOCCER REFEREE ASSOCIATION</h1>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav class="row navbar navbar-default">
+            <!--Collapse Side-bar XSmall Screen-->
+            <div class="navbar-header">
+              <button class="navbar-toggle" data-toggle="collapse" data-target="#elementID">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              </button>
+            </div>  
+            
+            <!--Default Bar Small Screen and Above-->
+            <div class="collapse navbar-collapse" id="elementID">
+              <ul class="nav navbar-nav">
+                <li>
+                    <a href="index.html">Home</a>
+                </li> 
+              
+                <li class="dropdown">
+                    <a href="referee.html" class="dropdown-toggle" data-toggle="dropdown">Referees <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <!-- DEFAULT Shows all referee profile -->
+                            <li><a href="referee.html">Profile</a></li>
+                            <!-- Select Referee & Assignments via Date-->
+                            <li><a href="referee-game.html">All Assignments</a></li> 
+                        </ul>
+                </li>
+              
+                <li>
+                    <!-- Shows all Games via Date-->
+                    <a href="game.html">Game Reports</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    
+
+    </div>
+    <!------------------------------------------------------------------------------------------------------------------>
+    
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+    <!-- JS Link -->
+    <script src="js/index.js"></script>
+
+</body>
+</html>
+
+
