@@ -3,7 +3,7 @@ USE finalproject;
 
 DROP TABLE IF EXISTS referees;
 CREATE TABLE referees (
-	id int PRIMARY KEY,
+	refID int PRIMARY KEY,
     firstName varchar(24),
     lastName varchar(24),
     age int,

@@ -9,8 +9,14 @@
     <!--Compiled and minified JavaScript-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <!-- JS Package -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
     <!-- Link to Internal CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+
 
     <!-- Google Fonts Style Link-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,11 +73,11 @@
 
         <!-- Table of Referees -->
         <div id="RefereeApp" class="row">
-        <h1 id="RefereeTable">List of Referees</h1>  
+        <h1 id="RefereeTable">Referee Profiles</h1>  
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Referee ID</th>
                     <th>Referee Name</th>
                     <th>Age</th>
                     <th>Grade</th>
@@ -80,7 +86,7 @@
             </thead>
             <tbody>
                 <tr v-for="referee in referees">
-                    <td>{{ referees.id }}</td>
+                    <td>{{ referees.refID }}</td>
                     <td>{{ referees.lastName }}, {{ referees.firstName}}</td>
                     <td>{{ referees.age }}</td>
                     <td>{{ referees.grade }}</td>

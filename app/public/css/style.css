@@ -13,3 +13,11 @@ background: url("img/cf.jpg") no-repeat center center fixed;
     color: white; 
     font-family: 'Alfa Slab One', cursive;
 }
+
+.table, th, td {
+    border: 1px solid black; 
+}
+
+#RefereeApp {
+    background-color: white; 
+}
