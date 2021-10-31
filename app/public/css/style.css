@@ -1,4 +1,4 @@
-/*-------- Basic HTML Styling Goes Here ----------*/
+/*-------- BASIC HTML Styling Goes Here ----------*/
 
 body {
 /* Img from Pinterest User "uerdemli" */
@@ -15,13 +15,16 @@ background: url("img/cf.jpg") no-repeat center center fixed;
     font-family: 'Alfa Slab One', cursive;
 }
 
+/*-------- NAVIGATION Styling Goes Here ----------*/
+.nav.navbar-nav li a:hover {
+    color: #9B0000;
+    }
 
 
 /*-------- API Styling Goes Here ----------*/
-
 .table, th, td {
-    border: 1px solid black; 
-}
+    border: 1px solid black;
+} 
 
 #RefereeApp {
     background-color: white; 
