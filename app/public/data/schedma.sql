@@ -11,7 +11,7 @@ CREATE TABLE referees (
     skill int
 );
 
-INSERT INTO referees (id, firstName, lastName, age, grade, skill) VALUES 
+INSERT INTO referees (refID, firstName, lastName, age, grade, skill) VALUES 
 (1111, 'Jeffrey', 'Yu', 25, 9, 80),
 (2222, 'Andrew', 'Wilderman', 22, 5, 90),
 (3333, 'Kevin', 'Alvarado', 23, 5, 90),

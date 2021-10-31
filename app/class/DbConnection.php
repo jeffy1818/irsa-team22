@@ -1,4 +1,3 @@
-<!-- Establishes Connection to AWS -->
 <?php
 
 class DbConnection

@@ -1,3 +1,4 @@
+/*-------- Basic HTML Styling Goes Here ----------*/
 
 body {
 /* Img from Pinterest User "uerdemli" */
@@ -10,9 +11,13 @@ background: url("img/cf.jpg") no-repeat center center fixed;
 
 #logo {
     text-align: center; 
-    color: white; 
+    color: black !important; 
     font-family: 'Alfa Slab One', cursive;
 }
+
+
+
+/*-------- API Styling Goes Here ----------*/
 
 .table, th, td {
     border: 1px solid black; 

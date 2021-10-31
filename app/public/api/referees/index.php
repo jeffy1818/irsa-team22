@@ -9,6 +9,11 @@ $db = DbConnection::getConnection();
 $sql = 'SELECT * FROM referees';
 $vars = [];
 
+/* if (isset($_GET['guid'])) {
+    // This is an example of a parameterized query
+    $sql = 'SELECT * FROM books';
+    $vars = [];
+} */
 
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);

@@ -9,8 +9,14 @@
     <!--Compiled and minified JavaScript-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <!-- JS Package -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
     <!-- Link to Internal CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+
 
     <!-- Google Fonts Style Link-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,14 +29,15 @@
 
     <!------------------------------------------------------------------------------------------------------------------>
     <div class="container">
-        
-        <!-- Header/LOGO -->
-        <header class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h1 id="logo">INDIANA SOCCER REFEREE ASSOCIATION</h1>
-        </header>
 
         <!-- Navigation Bar -->
         <nav class="row navbar navbar-default">
+            
+            <!-- Header/LOGO -->
+            <header class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1 id="logo">INDIANA SOCCER REFEREE ASSOCIATION</h1>
+            </header>
+
             <!--Collapse Side-bar XSmall Screen-->
             <div class="navbar-header">
               <button class="navbar-toggle" data-toggle="collapse" data-target="#elementID">
@@ -43,29 +50,18 @@
             <!--Default Bar Small Screen and Above-->
             <div class="collapse navbar-collapse" id="elementID">
               <ul class="nav navbar-nav">
-                <li>
-                    <a href="index.html">Home</a>
-                </li> 
+                <li> <a href="index.html">Home</a></li> 
               
-                <li class="dropdown">
-                    <a href="referee.html" class="dropdown-toggle" data-toggle="dropdown">Referees <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <!-- DEFAULT Shows all referee profile -->
-                            <li><a href="referee.html">Profile</a></li>
-                            <!-- Select Referee & Assignments via Date-->
-                            <li><a href="referee-game.html">All Assignments</a></li> 
-                        </ul>
-                </li>
+                <li><a href="referee.html">Referees</a></li>
               
-                <li>
-                    <!-- Shows all Games via Date-->
-                    <a href="game.html">Game Reports</a>
-                </li>
+                <li><a href="game.html">Games</a></li>
+
+                <li><a href="assignment.html">Referee Assignments</a></li>
+
+                <li><a href="report.html">Reports</a></li>
               </ul>
             </div>
-          </nav>
-    
-
+        </nav>
     </div>
     <!------------------------------------------------------------------------------------------------------------------>
     

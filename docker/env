@@ -1,0 +1,4 @@
+MYSQL_DATABASE=finalproject
+MYSQL_HOST=mydatabase.carcp7evu1xg.us-east-2.rds.amazonaws.com
+MYSQL_USER=admin
+MYSQL_PASSWORD=helloworld12345
