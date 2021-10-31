@@ -20,6 +20,17 @@ const RefereeApp = {
             .catch( (err) => {
                 console.error(err);
             })
+        },
+        fetchGameData() {
+            fetch('/api/games/')
+            .then( response => response.json() )
+            .then( (responseJson) => {
+                console.log(responseJson);
+                this.referees = responseJson;
+            })
+            .catch( (err) => {
+                console.error(err);
+            })
         }
     },
     created() {

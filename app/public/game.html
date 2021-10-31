@@ -16,8 +16,6 @@
     <!-- Link to Internal CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-
-
     <!-- Google Fonts Style Link-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +23,7 @@
         
     <title>Indiana Soccer Referee Association</title>
 </head>
+
 <body>
 
     <!------------------------------------------------------------------------------------------------------------------>
@@ -37,8 +36,9 @@
             <header class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h1 id="logo">INDIANA SOCCER REFEREE ASSOCIATION</h1>
             </header>
-
+            
             <!--Collapse Side-bar XSmall Screen-->
+            
             <div class="navbar-header">
               <button class="navbar-toggle" data-toggle="collapse" data-target="#elementID">
               <span class="icon-bar"></span>
@@ -62,6 +62,33 @@
               </ul>
             </div>
         </nav>
+
+        <!-- Table of Referees -->
+        <div id="RefereeApp" class="row">
+        <h1 id="RefereeTable">Referee Profiles</h1>  
+        <table class="table table-bordered table-hover" >
+            <thead class="thead-dark">
+                <tr>
+                    <th>Referee ID</th>
+                    <th>Referee Name</th>
+                    <th>Age</th>
+                    <th>Grade</th>
+                    <th>Skill</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="referee in referees">
+                    <td>{{ referee.refID }}</td>
+                    <td>{{ referee.lastName }}, {{ referee.firstName}}</td>
+                    <td>{{ referee.age }}</td>
+                    <td>{{ referee.grade }}</td>
+                    <td>{{ referee.skill }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+
     </div>
     <!------------------------------------------------------------------------------------------------------------------>
     
