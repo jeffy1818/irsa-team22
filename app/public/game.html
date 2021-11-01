@@ -65,24 +65,22 @@
 
         <!-- Table of Referees -->
         <div id="RefereeApp" class="row">
-        <h1 id="RefereeTable">Referee Profiles</h1>  
+        <h1 id="RefereeTable">Games Details</h1>  
         <table class="table table-bordered table-hover" >
             <thead class="thead-dark">
                 <tr>
-                    <th>Referee ID</th>
-                    <th>Referee Name</th>
-                    <th>Age</th>
-                    <th>Grade</th>
-                    <th>Skill</th>
+                    <th>Game ID</th>
+                    <th>Stadium Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="referee in referees">
-                    <td>{{ referee.refID }}</td>
-                    <td>{{ referee.lastName }}, {{ referee.firstName}}</td>
-                    <td>{{ referee.age }}</td>
-                    <td>{{ referee.grade }}</td>
-                    <td>{{ referee.skill }}</td>
+                <tr v-for="game in games">
+                    <td>{{ game.gameID }}</td>
+                    <td>{{ game.stadium }}</td>
+                    <td>{{ game.dy }}</td>
+                    <td>{{ game.gme }}</td>
                 </tr>
             </tbody>
         </table>

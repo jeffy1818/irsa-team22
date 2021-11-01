@@ -62,6 +62,31 @@
               </ul>
             </div>
         </nav>
+          <!-- Table of Referees -->
+          <div id="RefereeApp" class="row">
+            <h1 id="RefereeTable">Referee Profiles</h1>  
+            <table class="table table-bordered table-hover" >
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Game ID</th>
+                        <th>Stadium Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="game in games">
+                        <td>{{ game.gameID }}</td>
+                        <td>{{ game.stadium }}</td>
+                        <td>{{ game.dy }}</td>
+                        <td>{{ game.gme }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    
+        </div>
     </div>
     <!------------------------------------------------------------------------------------------------------------------>
     
