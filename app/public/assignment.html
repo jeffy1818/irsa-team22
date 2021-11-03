@@ -68,18 +68,16 @@
             <table class="table table-bordered table-hover" >
                 <thead class="thead-dark">
                     <tr>
-                        <th>Game ID</th>
-                        <th>Stadium Name</th>
-                        <th>Date</th>
-                        <th>Time</th>
+                        <th>Referee ID</th>
+                        <th>Referee Name</th>
+                        <th>Assignment Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="game in games">
-                        <td>{{ game.gameID }}</td>
-                        <td>{{ game.stadium }}</td>
-                        <td>{{ game.dy }}</td>
-                        <td>{{ game.gme }}</td>
+                    <tr v-for="ag in assignments">
+                        <td>{{ ag.RefereeID }}</td>
+                        <td>{{ ag.Referee }}</td>
+                        <td>{{ ag.Assignment }}</td>
                     </tr>
                 </tbody>
             </table>

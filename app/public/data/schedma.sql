@@ -35,13 +35,12 @@ INSERT INTO referees (refID, stadium, dy, tme) VALUES
 
 DROP TABLE IF EXISTS assignemnts;
 CREATE TABLE assignemnts (
-	gameID int PRIMARY KEY,
-    stadium VARCHAR(24),
-    dy DATE,
-    tme TIME
+	RefereeID int PRIMARY KEY,
+    Referee VARCHAR(24),
+    Assignment VARCHAR(24)
 );
 
-INSERT INTO assignemnts (refID, stadium, dy, tme) VALUES 
+INSERT INTO assignemnts (RefereeID, Referee, Assignment) VALUES 
 (0001, 'Kuntz Stadium', 2021-11-04, 20:00:00)
 (0002, 'Kuntz Stadium', 2021-11-09, 19:00:00)
 (0003, 'Carroll Stadium', 2021-11-10, 18:30:00)
