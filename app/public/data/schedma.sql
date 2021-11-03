@@ -22,27 +22,13 @@ CREATE TABLE games (
 	gameID int PRIMARY KEY,
     stadium VARCHAR(24),
     dy DATE,
-    tme TIME
+    tme varchar(24)
 );
 
-INSERT INTO referees (refID, stadium, dy, tme) VALUES 
-(0001, 'Kuntz Stadium', 2021-11-04, 20:00:00)
-(0002, 'Kuntz Stadium', 2021-11-09, 19:00:00)
-(0003, 'Carroll Stadium', 2021-11-10, 18:30:00)
-(0004, 'Carroll Stadium', 2021-11-12, 17:30:00)
-(0005, 'Kuntz Stadium', 2021-11-13, 10:30:00);
+INSERT INTO games (gameID, stadium, dy, tme) VALUES 
+(0001, 'Kuntz Stadium', 2021-11-04, '20:00:00'),
+(0002, 'Kuntz Stadium', 2021-11-09, '19:00:00'),
+(0003, 'Carroll Stadium', 2021-11-10, '18:30:00'),
+(0004, 'Carroll Stadium', 2021-11-12, '17:30:00'),
+(0005, 'Kuntz Stadium', 2021-11-13, '10:30:00');
 
-
-DROP TABLE IF EXISTS assignemnts;
-CREATE TABLE assignemnts (
-	RefereeID int PRIMARY KEY,
-    Referee VARCHAR(24),
-    Assignment VARCHAR(24)
-);
-
-INSERT INTO assignemnts (RefereeID, Referee, Assignment) VALUES 
-(0001, 'Kuntz Stadium', 2021-11-04, 20:00:00)
-(0002, 'Kuntz Stadium', 2021-11-09, 19:00:00)
-(0003, 'Carroll Stadium', 2021-11-10, 18:30:00)
-(0004, 'Carroll Stadium', 2021-11-12, 17:30:00)
-(0005, 'Kuntz Stadium', 2021-11-13, 10:30:00);

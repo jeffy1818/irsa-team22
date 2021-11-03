@@ -1,14 +1,15 @@
 const RefereeApp = {
     data() {
       return {
-        referees: []
+        referees: [],
+        games: []
       }
     },
     computed: {},
     methods: {
-        prettyData(d) {
+        prettyDate(d) {
             return dayjs(d)
-            .format('D MMM YYYY')
+            .format('MMM D' + ', ' + 'YYYY')
         },
         fetchRefereeData() {
             fetch('/api/referees/')
@@ -26,7 +27,7 @@ const RefereeApp = {
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
-                this.referees = responseJson;
+                this.games = responseJson;
             })
             .catch( (err) => {
                 console.error(err);
@@ -35,6 +36,7 @@ const RefereeApp = {
     },
     created() {
         this.fetchRefereeData();
+        this.fetchGameData();
     }
   
   }

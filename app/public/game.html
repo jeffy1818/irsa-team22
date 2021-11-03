@@ -65,7 +65,7 @@
 
         <!-- Table of Referees -->
         <div id="RefereeApp" class="row">
-        <h1 id="RefereeTable">Games Details</h1>  
+        <h1 id="GameTable">Games Details</h1>  
         <table class="table table-bordered table-hover" >
             <thead class="thead-dark">
                 <tr>
@@ -79,8 +79,8 @@
                 <tr v-for="game in games">
                     <td>{{ game.gameID }}</td>
                     <td>{{ game.stadium }}</td>
-                    <td>{{ game.dy }}</td>
-                    <td>{{ game.gme }}</td>
+                    <td>{{ prettyDate(game.dy) }}</td>
+                    <td>{{ game.tme }}</td>
                 </tr>
             </tbody>
         </table>
