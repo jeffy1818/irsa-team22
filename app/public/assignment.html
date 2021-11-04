@@ -64,20 +64,28 @@
         </nav>
           <!-- Table of Referees -->
           <div id="RefereeApp" class="row">
-            <h1 id="RefereeTable">Referee Profiles</h1>  
+            <h1 id="RefereeTable">Referee Assignments</h1>  
             <table class="table table-bordered table-hover" >
                 <thead class="thead-dark">
                     <tr>
                         <th>Referee ID</th>
+                        <th>Game ID</th>
                         <th>Referee Name</th>
                         <th>Assignment Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="ag in assignments">
-                        <td>{{ ag.RefereeID }}</td>
-                        <td>{{ ag.Referee }}</td>
-                        <td>{{ ag.Assignment }}</td>
+                    <tr v-for="assignment in assignments">
+                        <td>{{ assignment.refID }}</td>
+                        <td>{{ assignment.gameID }}</td>
+                        <td>{{ assignment.Referee }}</td>
+                        <td>{{ assignment.Assignment }}</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-secondary btn-sm"
+                                          v-on:click="selectOfferToEdit(book)">Edit</button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm"
+                                          v-on:click="postDeleteOffer(book)">Delete</button>
+                          </td>
                     </tr>
                 </tbody>
             </table>

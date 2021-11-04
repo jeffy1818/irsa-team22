@@ -2,7 +2,8 @@ const RefereeApp = {
     data() {
       return {
         referees: [],
-        games: []
+        games: [],
+        selectedOffer: null
       }
     },
     computed: {},
@@ -31,9 +32,10 @@ const RefereeApp = {
             })
             .catch( (err) => {
                 console.error(err);
-            })
+            });
         }
     },
+
     created() {
         this.fetchRefereeData();
         this.fetchGameData();

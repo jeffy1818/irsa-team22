@@ -83,10 +83,50 @@
                     <td>{{ referee.age }}</td>
                     <td>{{ referee.grade }}</td>
                     <td>{{ referee.skill }}</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-secondary btn-sm"
+                                      v-on:click="selectOfferToEdit(referee)">Edit</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm"
+                                      v-on:click="postDeleteOffer(referee)">Delete</button>
+                      </td>
                 </tr>
             </tbody>
         </table>
     </div>
+<!------------------------------------------------------------------------------------------------------------>
+    <h3 class="text-center">{{ selectedOffer === null ? "Add a new" : "Edit " }} Book</h3>
+    <form v-on:submit.prevent="postOffer">
+      <div class="form-group">
+
+        <label for="t" class="form-label">Book Title</label>
+        <input type="text" v-model="offerForm.BookTitle" class="form-control" id="t" name="Book Title"><br>
+      </div>
+      <div class="form-group">
+        <label for="A" class="form-label">Author</label>
+        <input type="text" v-model="offerForm.Author" class="form-control" id="A" name="A">
+      </div>
+      <div class="form-group">
+        <label for="P" class="form-label">Publication Year</label>
+        <input type="text" v-model="offerForm.PublicationYear" class="form-control" id="P" name="A"><br>
+      </div>
+      <div class="form-group">
+        <label for="S" class="form-label">Publisher</label>
+        <input type="text" v-model="offerForm.Publisher" class="form-control" id="S" name="S"><br>
+      </div>
+      <div class="form-group">
+        <label for="C" class="form-label">Page Count</label>
+        <input type="number" v-model="offerForm.PageCount" class="form-control" id="C" name="C"><br>
+      </div>
+      <div class="form-group">
+        <label for="M" class="form-label">MSRP</label>
+        <input type="float" v-model="offerForm.MSRP" class="form-control" id="M" name="M"><br>
+      </div>
+      <!-- <input class="btn btn-dark" type="submit" value="Add"> -->
+      <button type="submit" class="btn btn-primary">{{ selectedOffer === null ? "Add " : "Edit " }} Book </button>
+      <button type="button" class="btn btn-dark" v-if="selectedOffer" v-on:click="resetOfferForm">Cancel</button>
+    </form>
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------->
     
 
     </div>
