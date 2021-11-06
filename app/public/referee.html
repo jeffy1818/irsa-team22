@@ -25,7 +25,6 @@
 </head>
 
 <body>
-
     <!------------------------------------------------------------------------------------------------------------------>
     <div class="container">
 
@@ -63,8 +62,9 @@
             </div>
         </nav>
 
-        <!-- Table of Referees -->
+        <!-- Main Content -->
         <div id="RefereeApp" class="row">
+        <!-- TABLE of Referees -->
         <h1 id="RefereeTable">Referee Profiles</h1>  
         <table class="table table-bordered table-hover" >
             <thead class="thead-dark">
@@ -84,50 +84,48 @@
                     <td>{{ referee.grade }}</td>
                     <td>{{ referee.skill }}</td>
                     <td>
-                        <button type="button" class="btn btn-outline-secondary btn-sm"
-                                      v-on:click="selectOfferToEdit(referee)">Edit</button>
-                        <button type="button" class="btn btn-outline-secondary btn-sm"
-                                      v-on:click="postDeleteOffer(referee)">Delete</button>
-                      </td>
+                      <button type="button" class="btn btn-outline-secondary btn-sm btn-success"
+                      v-on:click="handleEditReferee(referee)">Edit</button> &nbsp; 
+                      <button type="button" class="btn btn-outline-secondary btn-sm btn-danger"
+                      v-on:click="postDeleteReferee(referee)">Delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
-    </div>
-<!------------------------------------------------------------------------------------------------------------>
-    <h3 class="text-center">{{ selectedOffer === null ? "Add a new" : "Edit " }} Book</h3>
-    <form v-on:submit.prevent="postOffer">
-      <div class="form-group">
+        
+        <!-- FORM of Referees -->
+        <h2 id="RefereeForm">{{selectedReferee === null ? "Add " : "Edit " }}Referee</h2>
+        <form v-on:submit.prevent="postReferee">
+          <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" v-model="refereeForm.firstName" class="form-control" id="firstName">
+          </div>
 
-        <label for="t" class="form-label">Book Title</label>
-        <input type="text" v-model="offerForm.BookTitle" class="form-control" id="t" name="Book Title"><br>
-      </div>
-      <div class="form-group">
-        <label for="A" class="form-label">Author</label>
-        <input type="text" v-model="offerForm.Author" class="form-control" id="A" name="A">
-      </div>
-      <div class="form-group">
-        <label for="P" class="form-label">Publication Year</label>
-        <input type="text" v-model="offerForm.PublicationYear" class="form-control" id="P" name="A"><br>
-      </div>
-      <div class="form-group">
-        <label for="S" class="form-label">Publisher</label>
-        <input type="text" v-model="offerForm.Publisher" class="form-control" id="S" name="S"><br>
-      </div>
-      <div class="form-group">
-        <label for="C" class="form-label">Page Count</label>
-        <input type="number" v-model="offerForm.PageCount" class="form-control" id="C" name="C"><br>
-      </div>
-      <div class="form-group">
-        <label for="M" class="form-label">MSRP</label>
-        <input type="float" v-model="offerForm.MSRP" class="form-control" id="M" name="M"><br>
-      </div>
-      <!-- <input class="btn btn-dark" type="submit" value="Add"> -->
-      <button type="submit" class="btn btn-primary">{{ selectedOffer === null ? "Add " : "Edit " }} Book </button>
-      <button type="button" class="btn btn-dark" v-if="selectedOffer" v-on:click="resetOfferForm">Cancel</button>
-    </form>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" v-model="refereeForm.lastName" class="form-control" id="lastName">
+          </div>
 
-    <!--------------------------------------------------------------------------------------------------------------------------------------------->
-    
+          <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" v-model="refereeForm.age" class="form-control" id="age">
+          </div>
+
+          <div class="mb-3">
+            <label for="grade" class="form-label">Grade</label>
+            <input type="number" v-model="refereeForm.grade" class="form-control" id="grade">
+          </div>
+
+          <div class="mb-3">
+            <label for="skill" class="form-label">Skill</label>
+            <input type="number" v-model="refereeForm.skill" class="form-control" id="skill">
+          </div>
+
+          <button type="submit" class="btn btn-primary">{{ selectedReferee === null ? "Add" : "Edit" }} Referee</button>
+          <button type="button" class="btn btn-danger" v-if="selectedReferee" v-on:click="handleResetEditReferee">Cancel</button>
+        </form>
+        </div>
+        <!-- End of Main Content -->
 
     </div>
     <!------------------------------------------------------------------------------------------------------------------>

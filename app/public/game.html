@@ -25,7 +25,6 @@
 </head>
 
 <body>
-
     <!------------------------------------------------------------------------------------------------------------------>
     <div class="container">
 
@@ -63,8 +62,9 @@
             </div>
         </nav>
 
-        <!-- Table of Referees -->
+        <!-- Main Content -->
         <div id="RefereeApp" class="row">
+        <!-- TABLE of Games -->
         <h1 id="GameTable">Games Details</h1>  
         <table class="table table-bordered table-hover" >
             <thead class="thead-dark">
@@ -79,13 +79,40 @@
                 <tr v-for="game in games">
                     <td>{{ game.gameID }}</td>
                     <td>{{ game.stadium }}</td>
-                    <td>{{ prettyDate(game.dy) }}</td>
-                    <td>{{ game.tme }}</td>
+                    <td>{{ prettyDate(game.gameDate) }}</td>
+                    <td>{{ game.gameTime }}</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-success"
+                        v-on:click="handleEditGame(game)">Edit</button> &nbsp; 
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-danger"
+                        v-on:click="postDeleteGame(game)">Delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
-    </div>
-    
+
+        <!-- FORM of Games -->
+        <h2 id="GameForm">{{selectedGame === null ? "Add " : "Edit " }}Game</h2>
+        <form v-on:submit.prevent="postGame">
+          <div class="mb-3">
+            <label for="stadium" class="form-label">Stadium</label>
+            <input type="text" v-model="gameForm.stadium" class="form-control" id="stadium">
+          </div>
+
+          <div class="mb-3">
+            <label for="gameDate" class="form-label">Date</label>
+            <input type="date" v-model="gameForm.gameDate" class="form-control" id="gameDate">
+          </div>
+
+          <div class="mb-3">
+            <label for="gameTime" class="form-label">Time</label>
+            <input type="time" v-model="gameForm.gameTime" class="form-control" id="gameTime">
+          </div>
+
+          <button type="submit" class="btn btn-primary">{{ selectedGame === null ? "Add" : "Edit" }} Game</button>
+          <button type="button" class="btn btn-danger" v-if="selectedGame" v-on:click="handleResetEditGame">Cancel</button>
+        </form>
+        </div>
 
     </div>
     <!------------------------------------------------------------------------------------------------------------------>
