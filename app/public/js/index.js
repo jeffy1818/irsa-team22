@@ -3,6 +3,7 @@ const RefereeApp = {
       return {
         referees: [],
         games: [],
+        assignments: [],
         refereeForm: {},
         gameForm: {},
         selectedReferee: null,
@@ -185,11 +186,25 @@ const RefereeApp = {
             this.selectedGame = game;
             this.gameForm = Object.assign({}, this.selectedGame);
         },
+
+        //----- JS for GAMES ---------------------------------------------------------------------------------// 
+        fetchAssignmentData() {
+            fetch('/api/assignments/')
+            .then( response => response.json() )
+            .then( (responseJson) => {
+                console.log(responseJson);
+                this.assignments = responseJson;
+            })
+            .catch( (err) => {
+                console.error(err);
+            });
+        },
     },
 
     created() {
         this.fetchRefereeData();
         this.fetchGameData();
+        this.fetchAssignmentData();
     }
   
   }

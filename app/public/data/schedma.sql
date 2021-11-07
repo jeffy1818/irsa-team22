@@ -36,13 +36,15 @@ DROP TABLE IF EXISTS assignments;
 CREATE TABLE assignments (
 	assignmentID int PRIMARY KEY AUTO_INCREMENT,
     gameID int,
-    refID int,
     stadium varchar(24),
     gameDate date,
     gameTime time, 
-    assignment varchar(24)
+    headRef varchar(24) default '--',
+    assistantRef_1 varchar(24) default '--',
+    assistantRef_2 varchar(24) default '--',
+    fourthOfficial varchar(24) default '--'
 );
 
-INSERT INTO assignments (assignmentID, gameID, refID, stadium, gameDate, gameTime, assignment) VALUES 
-(01, {}
+INSERT INTO assignments (assignmentID, gameID, stadium, gameDate, gameTime, headRef, assistantRef_1, assistantRef_2, fourthOfficial) VALUES 
+(01, 01, 'Somewhere', 2021-11-04, '20:00:00', '--', '--', '--', '--');
 
