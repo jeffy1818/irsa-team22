@@ -73,45 +73,67 @@
                         <th>Game ID</th>
                         <th>Referee ID</th>
                         <th>Referee Name</th>
+                        <th>Status</th>
+                        <th>Position</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="assignment in assignments">
                         <td>{{ assignment.gameID }}</td>
                         <td>{{ assignment.refID }}</td>
-                        <td>{{ assignment.firstName }}</td>
-
+                        <td>{{ assignment.lastName }}, {{ assignment.firstName }}</td>
+                        <td>{{ assignment.assignmentPosition }}</td>
+                        <td>{{ assignment.assignmentStatus }}</td>
                         <td>
                             <button type="button" class="btn btn-outline-secondary btn-sm btn-success"
-                            v-on:click="handleEditGame(game)">Edit</button> &nbsp; 
+                            v-on:click="handleEditAssignment(assignment)">Edit</button> &nbsp; 
                             <button type="button" class="btn btn-outline-secondary btn-sm btn-danger"
-                            v-on:click="postDeleteGame(game)">Delete</button>
+                            v-on:click="postDeleteAssignment(assignment)">Delete</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
     
-            <!-- FORM of Games -->
-            <h2 id="AssignmentForm">{{selectedGame === null ? "Add " : "Edit " }}Assignment</h2>
-            <form v-on:submit.prevent="postGame">
+            <!-- FORM of Assignments -->
+            <h2 id="AssignmentForm">{{selectedAssignment === null ? "Add " : "Edit " }}Assignment</h2>
+            <form v-on:submit.prevent="postAssignment">
                 <div class="mb-3">
-                <label for="stadium" class="form-label">Stadium</label>
-                <input type="text" v-model="gameForm.stadium" class="form-control" id="stadium">
+                <label for="gameID" class="form-label">Game ID</label>
+                <select v-model="assignmentForm.gameID" class="form-select" id="gameID">
+                    <option v-for="game in games" :value="game.gameID">
+                        {{ game.gameID }} - {{ game.stadium }}, {{prettyDate(game.gameDate)}}
+                    </option>
+                </select>
                 </div>
     
                 <div class="mb-3">
-                <label for="gameDate" class="form-label">Date</label>
-                <input type="date" v-model="gameForm.gameDate" class="form-control" id="gameDate">
+                <label for="refID" class="form-label">Referee ID</label>
+                <input type="number" v-model="assignmentForm.refID" class="form-control" id="refID">
                 </div>
     
                 <div class="mb-3">
-                <label for="gameTime" class="form-label">Time</label>
-                <input type="time" v-model="gameForm.gameTime" class="form-control" id="gameTime">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" v-model="assignmentForm.firstName" class="form-control" id="firstName">
                 </div>
-                <br>
+
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" v-model="assignmentForm.lastName" class="form-control" id="lastName">
+                </div>
+
+                <div class="mb-3">
+                    <label for="assignmentPosition" class="form-label">Position</label>
+                    <input type="text" v-model="assignmentForm.assignmentPosition" class="form-control" id="assignmentPosition">
+                </div>
+
+                <div class="mb-3">
+                    <label for="assignmentStatus" class="form-label">Status</label>
+                    <input type="text" v-model="assignmentForm.assignmentStatus" class="form-control" id="assignmentStatus">
+                </div>
+                <br>  
     
-                <button type="submit" class="btn btn-primary">{{ selectedGame === null ? "Add" : "Edit" }} Game</button>
-                <button type="button" class="btn btn-danger" v-if="selectedGame" v-on:click="handleResetEditGame">Cancel</button>
+                <button type="submit" class="btn btn-primary">{{ selectedAssignment === null ? "Add" : "Edit" }} Assignment</button>
+                <button type="button" class="btn btn-danger" v-if="selectedAssignment" v-on:click="handleResetEditAssignment">Cancel</button>
             </form>
             </div>
         

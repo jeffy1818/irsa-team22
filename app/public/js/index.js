@@ -6,8 +6,10 @@ const RefereeApp = {
         assignments: [],
         refereeForm: {},
         gameForm: {},
+        assignmentForm: {},
         selectedReferee: null,
-        selectedGame: null
+        selectedGame: null,
+        selectedAssignment: null, 
       }
     },
     computed: {},
@@ -199,6 +201,78 @@ const RefereeApp = {
                 console.error(err);
             });
         },
+        postAssignment(evt) {
+            if (this.selectedAssignment) {
+                this.postEditAssignment(evt);
+            } 
+            else {
+                this.postNewAssignment(evt);
+            }
+        },
+        postEditAssignment(evt) {
+            this.assignmentForm.assignmentID = this.selectedAssignment.assignmentID;     
+            console.log("Updating!", this.assignmentForm);
+            fetch('api/assignments/update.php', {
+                method:'POST',
+                body: JSON.stringify(this.assignmentForm),
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8"
+                }
+                })
+                .then( response => response.json() )
+                .then( json => {
+                console.log("Returned from post:", json);
+                // TODO: test a result was returned!
+                this.assignments = json;
+                this.handleResetEditAssignment();
+                });
+        },
+        postNewAssignment(evt) {
+            console.log("Posting!", this.assignmentForm);
+            fetch('api/assignments/create.php', {
+                method:'POST',
+                body: JSON.stringify(this.assignmentForm),
+                headers: {
+                  "Content-Type": "application/json; charset=utf-8"
+                }
+              })
+              .then( response => response.json() )
+              .then( json => {
+                console.log("Returned from post:", json);
+                // TODO: test a result was returned!
+                this.assignments = json;
+                // reset the form
+                this.assignmentForm = {};
+              });
+        },
+        postDeleteAssignment(assignment) {
+            if (!confirm("Are you sure you want to delete assignment " + assignment.assignmentID + "?")) {
+                return;
+            } 
+            fetch('api/assignments/delete.php', {
+                method:'POST',
+                body: JSON.stringify(assignment),
+                headers: {
+                  "Content-Type": "application/json; charset=utf-8"
+                }
+              })
+              .then( response => response.json() )
+              .then( json => {
+                console.log("Returned from post:", json);
+                // TODO: test a result was returned!
+                this.assignments = json;
+                this.handleResetEditAssignment();
+              });
+        },
+        handleResetEditAssignment() {
+            this.selectedAssignment = null;
+            this.assignmentForm = {};
+        },
+        handleEditAssignment(assignment) {
+            console.log("selecting", assignment);
+            this.selectedAssignment = assignment;
+            this.assignmentForm = Object.assign({}, this.selectedAssignment);
+        }, 
     },
 
     created() {

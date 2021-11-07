@@ -40,12 +40,15 @@ CREATE TABLE assignments (
     gameID int, 
     refID int,
     firstName varchar(24),
+    lastName varchar(24),
+    assignmentStatus varchar(24),
+    assignmentPosition varchar(24),
     FOREIGN KEY (gameID) REFERENCES games(gameID),
     FOREIGN KEY (refID) REFERENCES referees(refID)
 );
 
-INSERT INTO assignments (assignmentID, gameID, refID, firstName) VALUES 
-(0001, 01, 01, 'Jeffrey Yu'); 
+INSERT INTO assignments (assignmentID, gameID, refID, firstName, lastName, assignmentPosition, assignmentStatus) VALUES 
+(0001, 01, 01, 'Jeffrey', 'Yu', 'Head Referee', 'Acccepted'); 
 
 SELECT * FROM assignments
 INNER JOIN referees ON assignments.refID = referees.refID;
