@@ -74,6 +74,7 @@
                     <th>Age</th>
                     <th>Grade</th>
                     <th>Skill</th>
+                    <th style="width:15%">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -120,6 +121,7 @@
             <label for="skill" class="form-label">Skill</label>
             <input type="number" v-model="refereeForm.skill" class="form-control" id="skill">
           </div>
+          <br>
 
           <button type="submit" class="btn btn-primary">{{ selectedReferee === null ? "Add" : "Edit" }} Referee</button>
           <button type="button" class="btn btn-danger" v-if="selectedReferee" v-on:click="handleResetEditReferee">Cancel</button>

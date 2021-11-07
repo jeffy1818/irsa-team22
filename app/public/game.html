@@ -108,6 +108,7 @@
             <label for="gameTime" class="form-label">Time</label>
             <input type="time" v-model="gameForm.gameTime" class="form-control" id="gameTime">
           </div>
+          <br>
 
           <button type="submit" class="btn btn-primary">{{ selectedGame === null ? "Add" : "Edit" }} Game</button>
           <button type="button" class="btn btn-danger" v-if="selectedGame" v-on:click="handleResetEditGame">Cancel</button>

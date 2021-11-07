@@ -31,7 +31,7 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO referees (firstName, lastName, age, gade, skill)
+  'INSERT INTO referees (firstName, lastName, age, grade, skill)
   VALUES (?, ?, ?, ?, ?)'
 );
 
@@ -39,7 +39,7 @@ $stmt->execute([
     $_POST['firstName'],
     $_POST['lastName'],
     $_POST['age'],
-    $_POST['gade'],
+    $_POST['grade'],
     $_POST['skill']
 ]);
 

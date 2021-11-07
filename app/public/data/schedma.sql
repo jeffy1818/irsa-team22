@@ -32,3 +32,17 @@ INSERT INTO games (gameID, stadium, gameDate, gameTime) VALUES
 (0004, 'Carroll Stadium', 2021-11-12, '17:30:00'),
 (0005, 'Kuntz Stadium', 2021-11-13, '10:30:00');
 
+DROP TABLE IF EXISTS assignments;
+CREATE TABLE assignments (
+	assignmentID int PRIMARY KEY AUTO_INCREMENT,
+    gameID int,
+    refID int,
+    stadium varchar(24),
+    gameDate date,
+    gameTime time, 
+    assignment varchar(24)
+);
+
+INSERT INTO assignments (assignmentID, gameID, refID, stadium, gameDate, gameTime, assignment) VALUES 
+(01, {}
+
