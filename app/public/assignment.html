@@ -73,8 +73,8 @@
                         <th>Game ID</th>
                         <th>Referee ID</th>
                         <th>Referee Name</th>
-                        <th>Status</th>
-                        <th>Position</th>
+                        <th>Assignment Position</th>
+                        <th>Assignment Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -101,36 +101,39 @@
                 <label for="gameID" class="form-label">Game ID</label>
                 <select v-model="assignmentForm.gameID" class="form-select" id="gameID">
                     <option v-for="game in games" :value="game.gameID">
-                        {{ game.gameID }} - {{ game.stadium }}, {{prettyDate(game.gameDate)}}
+                        {{ game.gameID }} -- {{prettyDate(game.gameDate)}} at {{ game.stadium }} 
                     </option>
                 </select>
                 </div>
-    
+
                 <div class="mb-3">
-                <label for="refID" class="form-label">Referee ID</label>
-                <input type="number" v-model="assignmentForm.refID" class="form-control" id="refID">
-                </div>
-    
-                <div class="mb-3">
-                <label for="firstName" class="form-label">First Name</label>
-                <input type="text" v-model="assignmentForm.firstName" class="form-control" id="firstName">
+                    <label for="refID" class="form-label">Referee ID</label>
+                    <select v-model="assignmentForm.refID" class="form-select" id="refID">
+                        <option v-for="referee in referees" :value="referee.refID">
+                            {{ referee.refID }} -- {{ referee.lastName }}, {{ referee.firstName }}
+                        </option>
+                    </select>
                 </div>
 
                 <div class="mb-3">
-                    <label for="lastName" class="form-label">Last Name</label>
-                    <input type="text" v-model="assignmentForm.lastName" class="form-control" id="lastName">
+                    <label for="assignmentPosition" class="form-label">Position Type</label>
+                    <select v-model="assignmentForm.assignmentPosition" class="form-select" id="assignmentPosition">
+                        <option value="Head Referee">Head Referee</option>
+                        <option value="Assistant Referee 1">Assistant Referee 1</option>
+                        <option value="Assistant Referee 2">Assistant Referee 2</option>
+                        <option value="Fourth Official">Fourth Official</option>
+                    </select>
                 </div>
 
                 <div class="mb-3">
-                    <label for="assignmentPosition" class="form-label">Position</label>
-                    <input type="text" v-model="assignmentForm.assignmentPosition" class="form-control" id="assignmentPosition">
+                    <label for="assignmentStatus" class="form-label">Assignment Status</label>
+                    <select v-model="assignmentForm.assignmentStatus" class="form-select" id="assignmentStatus">
+                        <option value="Unassigned">Unassigned</option>
+                        <option value="Assigned">Assigned</option>
+                        <option value="Tentative">Tentative</option>
+                        <option value="Accepted">Accepted</option>
+                    </select>
                 </div>
-
-                <div class="mb-3">
-                    <label for="assignmentStatus" class="form-label">Status</label>
-                    <input type="text" v-model="assignmentForm.assignmentStatus" class="form-control" id="assignmentStatus">
-                </div>
-                <br>  
     
                 <button type="submit" class="btn btn-primary">{{ selectedAssignment === null ? "Add" : "Edit" }} Assignment</button>
                 <button type="button" class="btn btn-danger" v-if="selectedAssignment" v-on:click="handleResetEditAssignment">Cancel</button>

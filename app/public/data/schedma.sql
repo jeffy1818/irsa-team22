@@ -48,7 +48,7 @@ CREATE TABLE assignments (
 );
 
 INSERT INTO assignments (assignmentID, gameID, refID, firstName, lastName, assignmentPosition, assignmentStatus) VALUES 
-(0001, 01, 01, 'Jeffrey', 'Yu', 'Head Referee', 'Acccepted'); 
+(0001, 01, 01, 'Jeffrey', 'Yu', 'Head Referee', 'Accepted'); 
 
 SELECT * FROM assignments
 INNER JOIN referees ON assignments.refID = referees.refID;

@@ -189,7 +189,7 @@ const RefereeApp = {
             this.gameForm = Object.assign({}, this.selectedGame);
         },
 
-        //----- JS for GAMES ---------------------------------------------------------------------------------// 
+        //----- JS for ASSIGNMENTS ---------------------------------------------------------------------------------// 
         fetchAssignmentData() {
             fetch('/api/assignments/')
             .then( response => response.json() )
