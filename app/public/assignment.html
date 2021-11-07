@@ -71,25 +71,16 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Game ID</th>
-                        <th>Stadium Name</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Head Referee</th>
-                        <th>Assistant Referee 1</th>
-                        <th>Assistant Referee 2</th>
-                        <th>4th Official</th>
+                        <th>Referee ID</th>
+                        <th>Referee Name</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="assignment in assignments">
                         <td>{{ assignment.gameID }}</td>
-                        <td>{{ assignment.stadium }}</td>
-                        <td>{{ prettyDate(assignment.gameDate) }}</td>
-                        <td>{{ assignment.gameTime }}</td>
-                        <td>{{ assignment.headRef }}</td>
-                        <td>{{ assignment.assistantRef_1 }}</td>
-                        <td>{{ assignment.assistantRef_2 }}</td>
-                        <td>{{ assignment.fourthOfficial }}</td>
+                        <td>{{ assignment.refID }}</td>
+                        <td>{{ assignment.firstName }}</td>
+
                         <td>
                             <button type="button" class="btn btn-outline-secondary btn-sm btn-success"
                             v-on:click="handleEditGame(game)">Edit</button> &nbsp; 
