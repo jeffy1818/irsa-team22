@@ -34,8 +34,6 @@ $stmt = $db->prepare(
   'UPDATE assignments SET
     gameID = ?,
     refID = ?,
-    firstName = ?,
-    lastName = ?,
     assignmentPosition = ?,
     assignmentStatus = ?, 
   WHERE assignmentID = ?'
@@ -44,8 +42,6 @@ $stmt = $db->prepare(
 $stmt->execute([
   $_POST['gameID'],
   $_POST['refID'],
-  $_POST['firstName'],
-  $_POST['lastName'],
   $_POST['assignmentPosition'],
   $_POST['assignmentStatus'],
   $_POST['assignmentID']

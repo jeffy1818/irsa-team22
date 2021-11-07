@@ -72,7 +72,6 @@
                     <tr>
                         <th>Game ID</th>
                         <th>Referee ID</th>
-                        <th>Referee Name</th>
                         <th>Assignment Position</th>
                         <th>Assignment Status</th>
                     </tr>
@@ -81,7 +80,6 @@
                     <tr v-for="assignment in assignments">
                         <td>{{ assignment.gameID }}</td>
                         <td>{{ assignment.refID }}</td>
-                        <td>{{ assignment.lastName }}, {{ assignment.firstName }}</td>
                         <td>{{ assignment.assignmentPosition }}</td>
                         <td>{{ assignment.assignmentStatus }}</td>
                         <td>

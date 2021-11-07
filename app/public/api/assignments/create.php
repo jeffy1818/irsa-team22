@@ -31,15 +31,13 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO assignments (gameID, refID, firstName, lastName, assignmentPosition, assignmentStatus)
-  VALUES (?, ?, ?, ?, ?, ?)'
+  'INSERT INTO assignments (gameID, refID, assignmentPosition, assignmentStatus)
+  VALUES (?, ?, ?, ?)'
 );
 
 $stmt->execute([
     $_POST['gameID'],
     $_POST['refID'],
-    $_POST['firstName'],
-    $_POST['lastName'],
     $_POST['assignmentPosition'],
     $_POST['assignmentStatus']
 ]);
