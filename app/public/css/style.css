@@ -26,6 +26,6 @@ background: url("img/cf.jpg") no-repeat center center fixed;
     border: 1px solid black;
 } 
 
-#RefereeApp {
+#RefereeApp, #ReportApp {
     background-color: white; 
 }

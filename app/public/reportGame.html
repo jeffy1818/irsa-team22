@@ -14,7 +14,7 @@
     <!--Compiled and minified JavaScript-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- JS Package -->
+    <!-- VueJS Package -->
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 
@@ -28,8 +28,8 @@
         
     <title>Indiana Soccer Referee Association</title>
 </head>
-
 <body>
+
     <!------------------------------------------------------------------------------------------------------------------>
     <div class="container">
 
@@ -38,20 +38,10 @@
 
             <!-- Header/LOGO -->
             <header class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h1 id="logo">INDIANA SOCCER REFEREE ASSOCIATION</h1>
+              <h1 id="logo">INDIANA SOCCER REFEREE ASSOCIATION</h1>
             </header>
-            
+
             <!--Collapse Side-bar XSmall Screen-->
-            
-            <div class="navbar-header">
-              <button class="navbar-toggle" data-toggle="collapse" data-target="#elementID">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              </button>
-            </div>  
-            
-            <!--Default Bar Small Screen and Above-->
             <div class="collapse navbar-collapse" id="elementID">
               <ul class="nav navbar-nav">
                 <li><a href="index.html">Home</a></li> 
@@ -76,68 +66,42 @@
             </div>
         </nav>
 
-        <!-- Main Content -->
-        <div id="RefereeApp" class="row">
-        <!-- TABLE of Games -->
-        <h1 id="GameTable">Games Details</h1>  
-        <table class="table table-bordered table-hover" >
-            <thead class="thead-dark">
-                <tr>
-                    <th>Game ID</th>
-                    <th>Stadium Name</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="game in games">
-                    <td>{{ game.gameID }}</td>
-                    <td>{{ game.stadium }}</td>
-                    <td>{{ prettyDate(game.gameDate) }}</td>
-                    <td>{{ game.gameTime }}</td>
-                    <td>
-                        <button type="button" class="btn btn-outline-secondary btn-sm btn-success"
-                        v-on:click="handleEditGame(game)">Edit</button> &nbsp; 
-                        <button type="button" class="btn btn-outline-secondary btn-sm btn-danger"
-                        v-on:click="postDeleteGame(game)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <!-- FORM of Games -->
-        <h2 id="GameForm">{{selectedGame === null ? "Add " : "Edit " }}Game</h2>
-        <form v-on:submit.prevent="postGame">
-          <div class="mb-3">
-            <label for="stadium" class="form-label">Stadium</label>
-            <input type="text" v-model="gameForm.stadium" class="form-control" id="stadium">
-          </div>
-
-          <div class="mb-3">
-            <label for="gameDate" class="form-label">Date</label>
-            <input type="date" v-model="gameForm.gameDate" class="form-control" id="gameDate">
-          </div>
-
-          <div class="mb-3">
-            <label for="gameTime" class="form-label">Time</label>
-            <input type="time" v-model="gameForm.gameTime" class="form-control" id="gameTime">
-          </div>
-          <br>
-
-          <button type="submit" class="btn btn-primary">{{ selectedGame === null ? "Add" : "Edit" }} Game</button>
-          <button type="button" class="btn btn-danger" v-if="selectedGame" v-on:click="handleResetEditGame">Cancel</button>
-        </form>
+        <div id="ReportApp" class="row"> 
+          <!-- TABLE of Reports -->
+          <p><a href="api/reports/?format=csv" download>Download as CSV</a></p>
+          <h1 id="ReportTable">Report Details</h1>  
+          <table class="table table-bordered table-hover" >
+              <thead class="thead-dark">
+                  <tr>
+                      <th>Game ID</th>
+                      <th>Referee ID</th>
+                      <th>Game Date</th>
+                      <th>Game Time</th>
+                      <th>Stadium</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr v-for="a in assignments">
+                      <td>{{ a.gameID }}</td>
+                      <td>{{ a.refID }}</td>
+                      <td>{{ prettyDate(a.gameDate) }}</td>
+                      <td>{{ a.gameTime }}</td>
+                      <td>{{ a.stadium }}</td>
+                  </tr>
+              </tbody>
+          </table>
         </div>
-
     </div>
+
+
     <!------------------------------------------------------------------------------------------------------------------>
     
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 
-    <!-- JS Link -->
-    <script src="js/index.js"></script>
+    <!-- AP Controller Script -->
+    <script src="js/report.js"></script>
 
 </body>
 </html>

@@ -35,8 +35,8 @@ $stmt = $db->prepare(
     gameID = ?,
     refID = ?,
     assignmentPosition = ?,
-    assignmentStatus = ?, 
-  WHERE assignmentID = ?'
+    assignmentStatus = ? 
+  WHERE assignmentID = ?' 
 );
 
 $stmt->execute([

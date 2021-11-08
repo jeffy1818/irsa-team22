@@ -28,11 +28,11 @@ CREATE TABLE games (
 );
 
 INSERT INTO games (gameID, stadium, gameDate, gameTime) VALUES 
-(01, 'Kuntz Stadium', 2021-11-04, '20:00:00'),
-(02, 'Kuntz Stadium', 2021-11-09, '19:00:00'),
-(03, 'Carroll Stadium', 2021-11-10, '18:30:00'),
-(04, 'Carroll Stadium', 2021-11-12, '17:30:00'),
-(05, 'Kuntz Stadium', 2021-11-13, '10:30:00');
+(01, 'Kuntz Stadium', '2020-05-09', '20:00'),
+(02, 'Kuntz Stadium', '2021-11-09', '19:00'),
+(03, 'Carroll Stadium', '2021-11-10', '18:30'),
+(04, 'Carroll Stadium', '2021-11-12', '17:30'),
+(05, 'Kuntz Stadium', '2021-11-13', '10:30');
 
 
 CREATE TABLE assignments (
@@ -48,9 +48,13 @@ CREATE TABLE assignments (
 INSERT INTO assignments (assignmentID, gameID, refID, assignmentPosition, assignmentStatus) VALUES 
 (0001, 01, 01, 'Head Referee', 'Accepted'); 
 
-SELECT * FROM assignments
-INNER JOIN referees ON assignments.refID = referees.refID;
+/* Shows a Referee with all game assignments within a given date range */
+SELECT assignments.gameID, refID, gameDate, gameTime, stadium
+FROM assignments RIGHT OUTER JOIN games ON assignments.gameID = games.gameID
+WHERE gameDate BETWEEN "2021-01-01" AND "2021-12-31"
+AND refID=1;
 
-
-
-
+/* Shows all future games with at least one "unassigned" game */
+SELECT games.gameID, gameDate, gameTime, stadium, assignmentStatus  
+FROM assignments RIGHT OUTER JOIN games ON assignments.gameID = games.gameID
+WHERE gameDate > CURDATE()
