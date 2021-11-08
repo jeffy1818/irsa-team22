@@ -110,41 +110,45 @@
             <h2 id="AssignmentForm">{{selectedAssignment === null ? "Add " : "Edit " }}Assignment</h2>
             <form v-on:submit.prevent="postAssignment">
                 <div class="mb-3">
-                <label for="gameID" class="form-label">Game ID</label>
-                <select v-model="assignmentForm.gameID" class="form-select" id="gameID">
+                <label for="gameID" class="form-label">Game ID</label> <br>
+                <select v-model="assignmentForm.gameID" class="form-select" id="gameID" style="width: 20%">
                     <option v-for="game in games" :value="game.gameID">
                         {{ game.gameID }} -- {{prettyDate(game.gameDate)}} at {{ game.stadium }} 
                     </option>
                 </select>
                 </div>
+                <br>
 
                 <div class="mb-3">
-                    <label for="refID" class="form-label">Referee ID</label>
-                    <select v-model="assignmentForm.refID" class="form-select" id="refID">
+                    <label for="refID" class="form-label">Referee ID</label> <br> 
+                    <select v-model="assignmentForm.refID" class="form-select" id="refID" style="width: 20%">
                         <option v-for="referee in referees" :value="referee.refID">
                             {{ referee.refID }} -- {{ referee.lastName }}, {{ referee.firstName }}
                         </option>
                     </select>
                 </div>
+                <br>
 
                 <div class="mb-3">
-                    <label for="assignmentPosition" class="form-label">Position Type</label>
-                    <select v-model="assignmentForm.assignmentPosition" class="form-select" id="assignmentPosition">
+                    <label for="assignmentPosition" class="form-label">Position Type</label> <br>
+                    <select v-model="assignmentForm.assignmentPosition" class="form-select" id="assignmentPosition" style="width: 20%">
                         <option value="Head Referee">Head Referee</option>
                         <option value="Assistant Referee 1">Assistant Referee 1</option>
                         <option value="Assistant Referee 2">Assistant Referee 2</option>
                         <option value="Fourth Official">Fourth Official</option>
                     </select>
                 </div>
+                <br>
 
                 <div class="mb-3">
-                    <label for="assignmentStatus" class="form-label">Assignment Status</label>
-                    <select v-model="assignmentForm.assignmentStatus" class="form-select" id="assignmentStatus">
+                    <label for="assignmentStatus" class="form-label">Assignment Status</label> <br>
+                    <select v-model="assignmentForm.assignmentStatus" class="form-select" id="assignmentStatus" style="width: 20%">
                         <option value="Tentative">Tentative</option>
                         <option value="Accepted">Accepted</option>
                     </select>
                 </div>
-    
+                <br>
+
                 <button type="submit" class="btn btn-primary">{{ selectedAssignment === null ? "Add" : "Edit" }} Assignment</button>
                 <button type="button" class="btn btn-danger" v-if="selectedAssignment" v-on:click="handleResetEditAssignment">Cancel</button>
             </form>

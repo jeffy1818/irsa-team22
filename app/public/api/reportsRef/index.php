@@ -19,10 +19,9 @@ require ('class/DbConnection.php');
 // Step 1: Get a datase connection from our helper class
 $db = DbConnection::getConnection();
 // This is an example of a parameterized query
-$sql = 'SELECT games.stadium, games.gameDate, games.gameTime, assignments.assignmentStatus,
- assignments.refID, assignments.assignmentID FROM games
-  INNER JOIN assignments ON games.gameID = assignments.gameID 
-  WHERE assignments.refID = ? AND games.gameDate >? AND games.gameDate<? ;';
+$sql = 'SELECT games.stadium, games.gameDate, games.gameTime, assignments.assignmentStatus, assignments.refID, assignments.assignmentID 
+        FROM games INNER JOIN assignments ON games.gameID = assignments.gameID 
+        WHERE assignments.refID = ? AND games.gameDate >? AND games.gameDate<? ;';
 
 $vars = [ $_POST['refID'],
           $_POST['startDate'],

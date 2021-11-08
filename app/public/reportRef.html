@@ -29,6 +29,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
         
     <title>Indiana Soccer Referee Association</title>
+
+    <!-- CSV Export JS -->
+    <script>
+      
+
+
+
+    </script>
+
 </head>
 <body>
 
@@ -79,25 +88,25 @@
 
         <div id="ReportApp" class="row"> 
           <!-- TABLE of Reports -->
-          <p><a href="api/reportsRef/?format=csv" download>Download as CSV</a></p>
           <h1 id="ReportApp">Report Details</h1>
           <form class="ui form" v-on:submit.prevent="selectReferee">
             <div class="field">
-                <label>Referee</label>
+                <label>Referee</label> &nbsp;
                 <select v-model="dateReportForm.refID"  id="refID">
                     <option v-for="ref in referee" :value= 'ref.refID' >{{ ref.firstName }}</option>
                 </select>
               </div>
               <div class="field">
-                <label>GameDate</label>
+                <label>Beginning Date</label> &nbsp;
                 <input type="date" v-model="dateReportForm.startDate" placeholder="GameDate">
               </div>
               <div class="field">
-                <label>GameDate</label>
+                <label>Ending Date</label> &nbsp;
                 <input type="date" v-model="dateReportForm.endDate" placeholder="GameDate">
               </div>
 
-              <button class="ui green button" type="submit"> View Report</button>
+              <button class="btn btn-success" type="submit"> View Report</button> &nbsp;
+              <button class="btn btn-primary" onclick="exportTableToCSV('RefereeAssignments.csv')">Download as CSV</button>
           </form>  
           <div  v-if="selectedRefereeDetails">
 

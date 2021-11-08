@@ -42,6 +42,11 @@ a.nav-link.active {
     background-color: white !important; 
 }
 
+button.btn.btn-primary a {
+    color: white; 
+    text-decoration: none;
+}
+
 /*-------- FOOTER Styling Goes Here ----------*/
 footer {
     background-color: white;
