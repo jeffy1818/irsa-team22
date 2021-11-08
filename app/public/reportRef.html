@@ -80,27 +80,47 @@
         <div id="ReportApp" class="row"> 
           <!-- TABLE of Reports -->
           <p><a href="api/reportsRef/?format=csv" download>Download as CSV</a></p>
-          <h1 id="ReportTable">Report Details</h1>  
-          <table class="table table-bordered table-hover" >
-              <thead class="thead-dark">
-                  <tr>
-                      <th>Game ID</th>
-                      <th>Referee ID</th>
-                      <th>Game Date</th>
-                      <th>Game Time</th>
-                      <th>Stadium</th>
+          <h1 id="ReportApp">Report Details</h1>
+          <form class="ui form" v-on:submit.prevent="selectReferee">
+            <div class="field">
+                <label>Referee</label>
+                <select v-model="dateReportForm.refID"  id="refID">
+                    <option v-for="ref in referee" :value= 'ref.refID' >{{ ref.firstName }}</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>GameDate</label>
+                <input type="date" v-model="dateReportForm.startDate" placeholder="GameDate">
+              </div>
+              <div class="field">
+                <label>GameDate</label>
+                <input type="date" v-model="dateReportForm.endDate" placeholder="GameDate">
+              </div>
+
+              <button class="ui green button" type="submit"> View Report</button>
+          </form>  
+          <div  v-if="selectedRefereeDetails">
+
+            <h2>List of Assignments from {{selectedRefereeDetails.startDate}} to {{selectedRefereeDetails.endDate}} </h2>
+            <table class="ui fixed single line celled table">
+                <thead>
+                  <tr>  
+                    <th>Field</th>
+                    <th>Referee Status</th>
+                    <th>GameDate</th>
+                    <th>GameTime</th>
                   </tr>
-              </thead>
-              <tbody>
-                  <tr v-for="a in assignmentRef">
-                      <td>{{ a.gameID }}</td>
-                      <td>{{ a.refID }}</td>
-                      <td>{{ prettyDate(a.gameDate) }}</td>
-                      <td>{{ a.gameTime }}</td>
-                      <td>{{ a.stadium }}</td>
+                </thead>
+                <tbody>
+                  <tr v-for="assign in assignDetail">
+                    <td>{{ assign.stadium }}</td>
+                    <td>{{ assign.assignmentStatus }}</td>
+                    <td>{{ assign.gameDate}}</td>
+                    <td>{{ assign.gameTime}}</td>
                   </tr>
-              </tbody>
-          </table>
+                </tbody>
+              </table>
+          </div>    
         </div>
         
         <footer class="row"> Indiana Soccer Referee Assocation &copy; 2021 All Rigts Reserved.</footer>
@@ -114,7 +134,7 @@
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 
     <!-- AP Controller Script -->
-    <script src="js/report.js"></script>
+    <script src="js/reportref.js"></script>
 
 </body>
 </html>

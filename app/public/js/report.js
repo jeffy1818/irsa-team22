@@ -12,17 +12,7 @@ const ReportApp = {
             .format('MMM D' + ', ' + 'YYYY')
         },
         //----- JS for ASSIGNMENTS ---------------------------------------------------------------------------------// 
-        fetchAssignmentDataRef() {
-            fetch('/api/reportsRef/')
-            .then( response => response.json() )
-            .then( (responseJson) => {
-                console.log(responseJson);
-                this.assignmentRef = responseJson;
-            })
-            .catch( (err) => {
-                console.error(err);
-            });
-        },
+
         fetchAssignmentDataGame() {
             fetch('/api/reportsGame/')
             .then( response => response.json() )
@@ -38,7 +28,6 @@ const ReportApp = {
     },
 
     created() {
-        this.fetchAssignmentDataRef();
         this.fetchAssignmentDataGame();
     }
   
