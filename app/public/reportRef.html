@@ -79,7 +79,7 @@
 
         <div id="ReportApp" class="row"> 
           <!-- TABLE of Reports -->
-          <p><a href="api/reports/?format=csv" download>Download as CSV</a></p>
+          <p><a href="api/reportsRef/?format=csv" download>Download as CSV</a></p>
           <h1 id="ReportTable">Report Details</h1>  
           <table class="table table-bordered table-hover" >
               <thead class="thead-dark">
@@ -92,7 +92,7 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr v-for="a in assignments">
+                  <tr v-for="a in assignmentRef">
                       <td>{{ a.gameID }}</td>
                       <td>{{ a.refID }}</td>
                       <td>{{ prettyDate(a.gameDate) }}</td>

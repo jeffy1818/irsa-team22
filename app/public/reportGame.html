@@ -68,25 +68,25 @@
 
         <div id="ReportApp" class="row"> 
           <!-- TABLE of Reports -->
-          <p><a href="api/reports/?format=csv" download>Download as CSV</a></p>
+          <p><a href="api/reportsGame/?format=csv" download>Download as CSV</a></p>
           <h1 id="ReportTable">Report Details</h1>  
           <table class="table table-bordered table-hover" >
               <thead class="thead-dark">
                   <tr>
                       <th>Game ID</th>
-                      <th>Referee ID</th>
                       <th>Game Date</th>
                       <th>Game Time</th>
                       <th>Stadium</th>
+                      <th>Game Assignment Status</th>
                   </tr>
               </thead>
               <tbody>
-                  <tr v-for="a in assignments">
-                      <td>{{ a.gameID }}</td>
-                      <td>{{ a.refID }}</td>
-                      <td>{{ prettyDate(a.gameDate) }}</td>
-                      <td>{{ a.gameTime }}</td>
-                      <td>{{ a.stadium }}</td>
+                  <tr v-for="b in assignmentsGame">
+                      <td>{{ b.gameID }}</td>
+                      <td>{{ prettyDate(b.gameDate) }}</td>
+                      <td>{{ b.gameTime }}</td>
+                      <td>{{ b.stadium }}</td>
+                      <td>{{ b.gameStatus }}</td>
                   </tr>
               </tbody>
           </table>

@@ -1,7 +1,8 @@
 const ReportApp = {
     data() {
       return {
-        assignments: []
+        assignmentsGame: [],
+        assignmentRef: []
       }
     },
     computed: {},
@@ -11,12 +12,23 @@ const ReportApp = {
             .format('MMM D' + ', ' + 'YYYY')
         },
         //----- JS for ASSIGNMENTS ---------------------------------------------------------------------------------// 
-        fetchAssignmentData() {
-            fetch('/api/reports/')
+        fetchAssignmentDataRef() {
+            fetch('/api/reportsRef/')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
-                this.assignments = responseJson;
+                this.assignmentRef = responseJson;
+            })
+            .catch( (err) => {
+                console.error(err);
+            });
+        },
+        fetchAssignmentDataGame() {
+            fetch('/api/reportsGame/')
+            .then( response => response.json() )
+            .then( (responseJson) => {
+                console.log(responseJson);
+                this.assignmentsGame = responseJson;
             })
             .catch( (err) => {
                 console.error(err);
@@ -26,7 +38,8 @@ const ReportApp = {
     },
 
     created() {
-        this.fetchAssignmentData();
+        this.fetchAssignmentDataRef();
+        this.fetchAssignmentDataGame();
     }
   
   }

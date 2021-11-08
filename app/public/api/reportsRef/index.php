@@ -16,14 +16,14 @@ $vars = [];
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
-$assignments = $stmt->fetchAll();
+$assignmentRef = $stmt->fetchAll();
 
 if (isset($_GET['format']) && $_GET['format']=='csv') {
     header('Content-Type: text/csv');
 
     echo "Game ID, Referee ID, Game Date, Game Time, Stadium\r\n";
 
-    foreach($assignments as $a) {
+    foreach($assignmentRef as $a) {
         echo "\"".$a['gameID'] ."\","
             .$a['refID'] .','
             .$a['gameDate'] .','
@@ -33,7 +33,7 @@ if (isset($_GET['format']) && $_GET['format']=='csv') {
 
 } else {
 // Step 3: Convert to JSON
-$json = json_encode($assignments, JSON_PRETTY_PRINT);
+$json = json_encode($assignmentRef, JSON_PRETTY_PRINT);
 
 // Step 4: Output
 header('Content-Type: application/json');

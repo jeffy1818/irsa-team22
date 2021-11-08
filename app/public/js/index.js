@@ -142,6 +142,24 @@ const RefereeApp = {
             this.handleResetEditGame();
             });
         },
+        postEditGameNew(evt) {
+            this.games.gameID = this.assignmentForm.gameID;     
+            console.log("Updating!", this.gameForm);
+            fetch('api/games/updateNew.php', {
+                method:'POST',
+                body: JSON.stringify(this.gameForm),
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8"
+                }
+                })
+                .then( response => response.json() )
+                .then( json => {
+                console.log("Returned from post:", json);
+                // TODO: test a result was returned!
+                this.games = json;
+                // this.handleResetEditGame();
+                });
+            },
         postNewGame(evt) {
             console.log("Posting!", this.gameForm);
             fetch('api/games/create.php', {
@@ -207,6 +225,7 @@ const RefereeApp = {
             } 
             else {
                 this.postNewAssignment(evt);
+                this.postEditGameNew(evt);
             }
         },
         postEditAssignment(evt) {

@@ -24,23 +24,24 @@ CREATE TABLE games (
 	gameID int PRIMARY KEY AUTO_INCREMENT,
     stadium VARCHAR(24),
     gameDate DATE,
-    gameTime varchar(24)
+    gameTime varchar(24),
+    gameStatus varchar(24) DEFAULT "Unassigned"
 );
 
-INSERT INTO games (gameID, stadium, gameDate, gameTime) VALUES 
-(01, 'Kuntz Stadium', '2020-05-09', '20:00'),
-(02, 'Kuntz Stadium', '2021-11-09', '19:00'),
-(03, 'Carroll Stadium', '2021-11-10', '18:30'),
-(04, 'Carroll Stadium', '2021-11-12', '17:30'),
-(05, 'Kuntz Stadium', '2021-11-13', '10:30');
+INSERT INTO games (gameID, stadium, gameDate, gameTime, gameStatus) VALUES 
+(01, 'Kuntz Stadium', '2020-05-09', '20:00', 'Unassigned'),
+(02, 'Kuntz Stadium', '2021-11-09', '19:00', 'Unassigned'),
+(03, 'Carroll Stadium', '2021-11-10', '18:30', 'Unassigned'),
+(04, 'Carroll Stadium', '2021-11-12', '17:30', 'Unassigned'),
+(05, 'Kuntz Stadium', '2021-11-13', '10:30', 'Unassigned');
 
 
 CREATE TABLE assignments (
 	assignmentID int PRIMARY KEY AUTO_INCREMENT,
     gameID int, 
     refID int,
-    assignmentStatus varchar(24),
-    assignmentPosition varchar(24),
+    assignmentStatus varchar(24) DEFAULT "",
+    assignmentPosition varchar(24) DEFAULT "",
     FOREIGN KEY (gameID) REFERENCES games(gameID),
     FOREIGN KEY (refID) REFERENCES referees(refID)
 );
