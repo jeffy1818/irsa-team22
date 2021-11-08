@@ -17,8 +17,19 @@ background: url("img/cf.jpg") no-repeat center center fixed;
 
 /*-------- NAVIGATION Styling Goes Here ----------*/
 .nav.navbar-nav li a:hover {
+    text-decoration: underline;
     color: #9B0000;
     }
+
+a.dropdown-item {
+    color: black; 
+    text-decoration: none;
+}
+
+a.nav-link.active {
+    text-decoration: underline;
+    color: #9B0000 !important; 
+}
 
 
 /*-------- API Styling Goes Here ----------*/

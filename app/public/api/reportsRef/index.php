@@ -6,6 +6,7 @@ require 'class/DbConnection.php';
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
+
 $sql = 'SELECT assignments.gameID, refID, gameDate, gameTime, stadium
         FROM assignments RIGHT OUTER JOIN games ON assignments.gameID = games.gameID
         WHERE gameDate BETWEEN "2021-01-01" AND "2021-12-31"
