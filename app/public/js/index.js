@@ -143,7 +143,7 @@ const RefereeApp = {
             });
         },
         postEditGameNew(evt) {
-            this.games.gameID = this.assignmentForm.gameID;     
+            this.gameForm.gameID = this.assignmentForm.gameID;     
             console.log("Updating!", this.gameForm);
             fetch('api/games/updateNew.php', {
                 method:'POST',

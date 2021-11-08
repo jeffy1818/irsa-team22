@@ -32,12 +32,11 @@ $db = DbConnection::getConnection();
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
   'UPDATE games SET
-    gameStatus = "Assigned",
+    gameStatus = "Assigned"
   WHERE gameID = ?'
 );
 
 $stmt->execute([
-  $_POST['gameStatus'],
   $_POST['gameID']
 ]);
 
