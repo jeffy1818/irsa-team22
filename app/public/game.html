@@ -124,6 +124,14 @@
             <label for="gameTime" class="form-label">Time</label>
             <input type="time" v-model="gameForm.gameTime" class="form-control" id="gameTime">
           </div>
+
+          <div class="mb-3">
+            <label for="gameStatus" class="form-label">Game Status</label> <br>
+            <select v-model="gameForm.gameStatus" class="form-select" id="gameStatus" style="width: 20%">
+                <option value="Unassigned">Unassigned</option>
+                <option value="Assigned">Assigned</option>
+            </select>
+        </div>
           <br>
 
           <button type="submit" class="btn btn-primary">{{ selectedGame === null ? "Add" : "Edit" }} Game</button>
@@ -131,7 +139,7 @@
         </form>
         </div>
 
-        <footer class="row"> Indiana Soccer Referee Assocation &copy; 2021 All Rigts Reserved.</footer>
+        <footer class="row"> Indiana Soccer Referee Assocation &copy; 2021 All Rights Reserved.</footer>
 
     </div>
     <!------------------------------------------------------------------------------------------------------------------>
