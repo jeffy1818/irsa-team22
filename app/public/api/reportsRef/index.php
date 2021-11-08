@@ -1,42 +1,41 @@
 <?php
-// require 'common.php';
-require 'class/DbConnection.php';
+
+try {
+  $_POST = json_decode(
+              file_get_contents('php://input'), 
+              true,
+              2,
+              JSON_THROW_ON_ERROR
+          );
+} catch (Exception $e) {
+  header($_SERVER["SERVER_PROTOCOL"] . " 400 Bad Request");
+  // print_r($_POST);
+  // echo file_get_contents('php://input');
+  exit;
+}
+
+require ('class/DbConnection.php');
 
 // Step 1: Get a datase connection from our helper class
 $db = DbConnection::getConnection();
+// This is an example of a parameterized query
+$sql = 'SELECT games.stadium, games.gameDate, games.gameTime, assignments.assignmentStatus,
+ assignments.refID, assignments.assignmentID FROM games
+  INNER JOIN assignments ON games.gameID = assignments.gameID 
+  WHERE assignments.refID = ? AND games.gameDate >? AND games.gameDate<? ;';
 
-// Step 2: Create & run the query
-
-$sql = 'SELECT assignments.gameID, refID, gameDate, gameTime, stadium
-        FROM assignments RIGHT OUTER JOIN games ON assignments.gameID = games.gameID
-        WHERE gameDate BETWEEN "2021-01-01" AND "2021-12-31"
-        AND refID=1';
-$vars = [];
-
+$vars = [ $_POST['refID'],
+          $_POST['startDate'],
+          $_POST['endDate'] ];
 
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
-$assignmentRef = $stmt->fetchAll();
+$assignDet = $stmt->fetchAll();
 
-if (isset($_GET['format']) && $_GET['format']=='csv') {
-    header('Content-Type: text/csv');
-
-    echo "Game ID, Referee ID, Game Date, Game Time, Stadium\r\n";
-
-    foreach($assignmentRef as $a) {
-        echo "\"".$a['gameID'] ."\","
-            .$a['refID'] .','
-            .$a['gameDate'] .','
-            .$a['gameTime'] .','
-            .$a['stadium'] ."\r\n";
-    }
-
-} else {
 // Step 3: Convert to JSON
-$json = json_encode($assignmentRef, JSON_PRETTY_PRINT);
+$json = json_encode($assignDet, JSON_PRETTY_PRINT);
 
 // Step 4: Output
 header('Content-Type: application/json');
 echo $json;
-}
