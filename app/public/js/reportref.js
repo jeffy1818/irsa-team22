@@ -9,7 +9,6 @@ const reports = {
     },
     
     methods:{
-
         selectReferee() {
             this.selectedRefereeDetails= this.dateReportForm;
             fetch('/api/reportsRef/index.php', {

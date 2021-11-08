@@ -1,8 +1,7 @@
 const ReportApp = {
     data() {
       return {
-        assignmentsGame: [],
-        assignmentRef: []
+        assignmentsGame: []
       }
     },
     computed: {},

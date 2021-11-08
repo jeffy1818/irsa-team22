@@ -31,11 +31,25 @@ $vars = [ $_POST['refID'],
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
-$assignDet = $stmt->fetchAll();
+$assignDetail = $stmt->fetchAll();
 
+if (isset($_GET['format']) && $_GET['format']=='csv') {
+    header('Content-Type: text/csv');   
+
+    echo "Game Stadium, Date, Time, Assignment Status\r\n";
+
+    foreach($assignDetail as $assign) {
+        echo "\"".$assign['stadium'] ."\","
+            .$assign['gameDate'] .','
+            .$assign['gameTime'] .','
+            .$assign['assignmentStatus'] ."\r\n";
+    }
+
+} else {
 // Step 3: Convert to JSON
-$json = json_encode($assignDet, JSON_PRETTY_PRINT);
+$json = json_encode($assignDetail, JSON_PRETTY_PRINT);
 
 // Step 4: Output
 header('Content-Type: application/json');
 echo $json;
+}
