@@ -124,21 +124,14 @@
             <label for="gameTime" class="form-label">Time</label>
             <input type="time" v-model="gameForm.gameTime" class="form-control" id="gameTime">
           </div>
-
-          <!-- CHECKKKKKKK Do I need this field at all??-->
-          <div class="mb-3">
-            <label for="gameStatus" class="form-label">Game Status</label>
-            <select v-model="gameForm.gameStatus" class="form-select" id="gameStatus">
-                <option value="Unassigned">Unassigned</option>
-                <option value="Assigned">Assigned</option>
-            </select>
-        </div>
           <br>
 
           <button type="submit" class="btn btn-primary">{{ selectedGame === null ? "Add" : "Edit" }} Game</button>
           <button type="button" class="btn btn-danger" v-if="selectedGame" v-on:click="handleResetEditGame">Cancel</button>
         </form>
         </div>
+
+        <footer class="row"> Indiana Soccer Referee Assocation &copy; 2021 All Rigts Reserved.</footer>
 
     </div>
     <!------------------------------------------------------------------------------------------------------------------>
